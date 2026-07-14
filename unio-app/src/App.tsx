@@ -38,7 +38,7 @@ export default function App() {
         <InterviewProvider>
           <WaPrescreeningProvider>
           <PipelineProvider>
-        <BrowserRouter basename="/demo-gexpress">
+        <BrowserRouter basename="/demo-masivo-capital">
           <Routes>
             {/* ── Auth (public) ── */}
             <Route path="/auth" element={<AuthPage />} />
