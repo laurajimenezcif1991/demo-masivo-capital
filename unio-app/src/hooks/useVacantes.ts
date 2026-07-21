@@ -20,14 +20,14 @@ export function useVacantes(): UseVacantesResult {
   const { token } = useAuth();
   const [vacantes, setVacantes] = useState<Vacante[]>([]);
   const [rawJobs, setRawJobs] = useState<Job[]>([]);
-  const [logoUrl, setLogoUrl] = useState<string>(assetUrl('/logo-gcexpress.png'));
+  const [logoUrl, setLogoUrl] = useState<string>(assetUrl('/logo-masivo-capital.png'));
   const [companyName, setCompanyName] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!token) {
-      setLogoUrl(assetUrl('/logo-gcexpress.png'));
+      setLogoUrl(assetUrl('/logo-masivo-capital.png'));
       setCompanyName('Masivo Capital');
       setVacantes([...MOCK_VACANTES]);
       setLoading(false);
@@ -43,7 +43,7 @@ export function useVacantes(): UseVacantesResult {
         if (cancelled) return;
         const jobs = data.jobs ?? [];
         setRawJobs(jobs);
-        setLogoUrl(assetUrl('/logo-gcexpress.png'));
+        setLogoUrl(assetUrl('/logo-masivo-capital.png'));
         setCompanyName('Masivo Capital');
         const mapped = jobs
           .filter((j) => !j.title?.toLowerCase().includes('supervisor de almac'))
@@ -53,7 +53,7 @@ export function useVacantes(): UseVacantesResult {
       .catch((err: unknown) => {
         if (cancelled) return;
         setError(err instanceof Error ? err.message : 'Error al cargar vacantes');
-        setLogoUrl(assetUrl('/logo-gcexpress.png'));
+        setLogoUrl(assetUrl('/logo-masivo-capital.png'));
         setCompanyName('Masivo Capital');
         setVacantes([...MOCK_VACANTES]);
       })
